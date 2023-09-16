@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '$lib/rgbKineticSlider.css';
+	import { base } from '$app/paths';
 
 	onMount(() => {
 		function setupRGBKineticSlider() {
-			window.images = ['img.png'];
+			window.images = [`${base}/img.png`];
 			window.texts = [['']];
 			if (typeof window !== 'undefined') {
 				if ('rgbKineticSlider' in window) {
@@ -12,8 +13,8 @@
 					return new window.rgbKineticSlider({
 						slideImages: window.images,
 						itemsTitles: window.texts,
-						backgroundDisplacementSprite: 'map-1.jpg',
-						cursorDisplacementSprite: 'displace-circle.png',
+						backgroundDisplacementSprite: `${base}/map-1.jpg`,
+						cursorDisplacementSprite: `${base}/displace-circle.png`,
 						cursorScaleIntensity: 0.5,
 						cursorMomentum: 0.14,
 
