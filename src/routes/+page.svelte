@@ -1,8 +1,34 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import '$lib/rgbKineticSlider.css';
 
 	onMount(() => {
-		createNewSlider();
+		function setupRGBKineticSlider() {
+			window.images = ['img.png'];
+			window.texts = [['']];
+			if (typeof window !== 'undefined') {
+				if ('rgbKineticSlider' in window) {
+					// @ts-ignore
+					return new window.rgbKineticSlider({
+						slideImages: window.images,
+						itemsTitles: window.texts,
+						backgroundDisplacementSprite: 'map-1.jpg',
+						cursorDisplacementSprite: 'displace-circle.png',
+						cursorScaleIntensity: 0.5,
+						cursorMomentum: 0.14,
+
+						swipe: false,
+						swipeDistance: window.innerWidth * 0.4,
+						swipeScaleIntensity: 2,
+
+						slideTransitionDuration: 0.8,
+						transitionScaleIntensity: 30,
+						transitionScaleAmplitude: 160
+					});
+				}
+			}
+		}
+		setupRGBKineticSlider();
 	});
 
 	let page = 'home';
