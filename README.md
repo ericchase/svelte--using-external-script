@@ -1,4 +1,4 @@
-demo: [https://ericchase.github.io/svelte--using-external-script]()
+demo: https://ericchase.github.io/svelte--using-external-script
 
 # create-svelte
 
